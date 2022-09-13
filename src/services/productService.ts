@@ -3,7 +3,12 @@ import productModel from '../models/productModel';
 
 async function create(product: Product) {
   const data = await productModel.create(product);
-  return { status: 201, data };
+  return data;
 }
 
-export default { create };
+async function getAllProducts() {
+  const data = await productModel.getAllProducts();
+  return data;
+}
+
+export default { create, getAllProducts };
