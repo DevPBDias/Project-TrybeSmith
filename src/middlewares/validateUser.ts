@@ -7,7 +7,7 @@ function validateUsername(req: Request, res: Response, next:NextFunction) {
   if (!username) {
     return res.status(StatusCodes.BAD_REQUEST).json({ message: '"username" is required' });
   }
-  if (typeof (username) !== 'string') {
+  if (typeof username !== 'string') {
     return res.status(StatusCodes.UNPROCESSABLE_ENTITY)
       .json({ message: '"username" must be a string' });
   }
@@ -23,7 +23,7 @@ function validatePassword(req: Request, res: Response, next:NextFunction) {
   if (!password) {
     return res.status(StatusCodes.BAD_REQUEST).json({ message: '"password" is required' });
   }
-  if (typeof (password) !== 'string') {
+  if (typeof password !== 'string') {
     return res.status(StatusCodes.UNPROCESSABLE_ENTITY)
       .json({ message: '"password" must be a string' });
   }
@@ -37,16 +37,16 @@ function validatePassword(req: Request, res: Response, next:NextFunction) {
 function validateLevel(req: Request, res: Response, next:NextFunction) {
   const { level } = req.body;
   console.log(level);
-  if (!level) {
-    return res.status(StatusCodes.BAD_REQUEST).json({ message: '"level" is required' });
-  }
-  if (typeof (level) !== 'number') {
-    return res.status(StatusCodes.UNPROCESSABLE_ENTITY)
-      .json({ message: '"level" must be a number' });
-  }
   if (level < 1) {
     return res.status(StatusCodes.UNPROCESSABLE_ENTITY)
       .json({ message: '"level" must be greater than or equal to 1' });
+  }
+  if (!level) {
+    return res.status(StatusCodes.BAD_REQUEST).json({ message: '"level" is required' });
+  }
+  if (typeof level !== 'number') {
+    return res.status(StatusCodes.UNPROCESSABLE_ENTITY)
+      .json({ message: '"level" must be a number' });
   }
   next();
 }
@@ -56,7 +56,7 @@ function validateClasse(req: Request, res: Response, next:NextFunction) {
   if (!classe) {
     return res.status(StatusCodes.BAD_REQUEST).json({ message: '"classe" is required' });
   }
-  if (typeof (classe) !== 'string') {
+  if (typeof classe !== 'string') {
     return res.status(StatusCodes.UNPROCESSABLE_ENTITY)
       .json({ message: '"classe" must be a string' });
   }

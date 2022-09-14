@@ -4,5 +4,4 @@ export interface User {
   classe: string,
   level: number,
   password: string,
-
 }
