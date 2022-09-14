@@ -3,11 +3,11 @@ import userModel from '../models/userModel';
 
 const JWT_SECRET = 'JWT_SECRET';
 
-export async function login(userLogin: string) {
-  const data = await userModel.getByUsername(userLogin);
-  const token = jwt.sign({ data }, JWT_SECRET);
-  const result = { data, token };
-  return result;
+export async function login(username: string) {
+  const token = jwt.sign({ username }, JWT_SECRET);
+  const data = await userModel.getByUsername(username);
+  if (!data) return null;
+  return token;
 }
 
 export default { login };

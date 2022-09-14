@@ -1,6 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
-// import { User } from '../interfaces/userInterface';
 
 function validateUsername(req: Request, res: Response, next:NextFunction) {
   const { username } = req.body;
@@ -36,7 +35,6 @@ function validatePassword(req: Request, res: Response, next:NextFunction) {
 
 function validateLevel(req: Request, res: Response, next:NextFunction) {
   const { level } = req.body;
-  console.log(level);
   if (level < 1) {
     return res.status(StatusCodes.UNPROCESSABLE_ENTITY)
       .json({ message: '"level" must be greater than or equal to 1' });

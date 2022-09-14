@@ -1,6 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
-// import { Product } from '../interfaces/productInterface';
 
 function validateName(req: Request, res: Response, next:NextFunction) {
   const { name } = req.body;
